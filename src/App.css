@@ -1,0 +1,19 @@
+/* Add this to your global CSS file */
+:root {
+  --navbar-height: 65px;
+}
+
+body {
+  padding-top: var(--navbar-height);
+}
+
+@media (max-width: 480px) {
+  :root {
+    --navbar-height: 60px;
+  }
+}
+
+/* This ensures all content starts below the navbar */
+main, .content-wrapper {
+  padding-top: 20px; /* Additional spacing if needed */
+}
