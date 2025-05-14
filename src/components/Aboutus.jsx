@@ -340,29 +340,33 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      
+     {/* Team Section */}
       <section className="team-section">
-        <h2>Meet The Experts</h2>
-        <p className="subtitle">Our team combines decades of experience with genuine care for your needs</p>
-        <div className="team-grid">
-          {team.map(member => (
-            <div className="team-card" key={member.id}>
-              <div className="card-image">
-                <img src={member.img} alt={member.name} />
-                <div className="social-links">
-                  <a href="#"><i className="fab fa-linkedin"></i></a>
-                  <a href="#"><i className="fab fa-twitter"></i></a>
-                </div>
-              </div>
-              <div className="card-content">
-                <h3>{member.name}</h3>
-                <p className="role">{member.role}</p>
-                <p className="expertise">{member.expertise}</p>
-              </div>
-            </div>
-          ))}
+      <div className="container">
+      <h2>Meet The Experts</h2>
+      <p className="subtitle">Our team combines decades of experience with genuine care for your needs</p>
+      <div className="team-grid">
+      {team.map(member => (
+        <div className="team-card" key={member.id}>
+          <div className="card-image">
+            <img src={member.img} alt={member.name} />
+            {/* <div className="social-links">
+              <a href="#"><i className="fab fa-linkedin"></i></a>
+              <a href="#"><i className="fab fa-twitter"></i></a>
+              <a href="#"><i className="fas fa-envelope"></i></a>
+            </div> */}
+          </div>
+          <div className="card-content">
+            <h3>{member.name}</h3>
+            <p className="role">{member.role}</p>
+            <p className="expertise">{member.expertise}</p>
+          </div>
         </div>
-      </section>
+        ))}
+        </div>
+      </div>
+    </section>
 
       {/* Testimonials */}
       <section className="testimonials">

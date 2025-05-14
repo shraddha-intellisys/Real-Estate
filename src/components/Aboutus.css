@@ -131,7 +131,7 @@ section {
 }
 
 .cta-button.primary:hover {
-  background: rgb(68, 72, 182);
+  background: rgb(16, 19, 99);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.2);
 }
@@ -470,28 +470,49 @@ section {
 }
 
 /* Team Section */
+/* Team Section */
 .team-section {
   background: var(--light);
   text-align: center;
+  padding: 5rem 0;
   position: relative;
   overflow: hidden;
 }
 
-.team-section::before {
+.team-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.team-section::before,
+.team-section::after {
   content: '';
   position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.team-section::before {
   bottom: -100px;
   right: -100px;
   width: 300px;
   height: 300px;
   background: var(--accent);
   opacity: 0.1;
-  border-radius: 50%;
-  z-index: 1;
+}
+
+.team-section::after {
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: var(--primary);
+  opacity: 0.05;
 }
 
 .team-section h2 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: 1rem;
   color: var(--primary);
   position: relative;
@@ -499,16 +520,20 @@ section {
 }
 
 .subtitle {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 3rem;
   color: #718096;
   position: relative;
   z-index: 2;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 }
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   position: relative;
   z-index: 2;
@@ -516,27 +541,21 @@ section {
 
 .team-card {
   background: white;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
   position: relative;
 }
 
 .team-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
 .card-image {
   position: relative;
-  height: 350px;
-  overflow: hidden;
-}
-
-.image-container {
-  width: 100%;
-  height: 100%;
+  height: 300px;
   overflow: hidden;
 }
 
@@ -545,47 +564,97 @@ section {
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  transition: var(--transition);
+  transition: transform 0.5s ease;
 }
 
 .team-card:hover .card-image img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-
+/* .social-links {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+} */
 
 .team-card:hover .social-links {
   bottom: 0;
 }
-
+/* 
 .social-links a {
   color: var(--primary);
-  margin: 0 0.5rem;
-  font-size: 1.2rem;
-  transition: var(--transition);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.03);
 }
 
 .social-links a:hover {
-  color: var(--secondary);
-}
+  color: white;
+  background: var(--primary);
+  transform: translateY(-3px);
+} */
 
 .card-content {
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 2rem;
 }
 
 .card-content h3 {
   margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: var(--dark);
 }
 
 .role {
   color: var(--secondary);
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
 }
 
 .expertise {
   color: #718096;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .team-section {
+    padding: 3rem 0;
+  }
+  
+  .team-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 0.95rem;
+    padding: 0 1rem;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .card-image {
+    height: 280px;
+  }
 }
 
 /* Testimonials */
