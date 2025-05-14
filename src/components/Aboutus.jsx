@@ -239,20 +239,53 @@ const AboutUs = () => {
       )}
 
       {/* Hero Section */}
+           
       <section className="hero">
-        <div className="hero-content">
-          <h1> About Us</h1>
-          <h1>Building Dreams, Creating Communities</h1>
-          <p>Pune's most trusted real estate partner since 2010</p>
-          <button 
-           onClick={() => window.location.href = '/HomesList'}
-           className="cta-button">Explore Properties
-          </button>
+      <div className="hero-container">
+       <div className="hero-content">
+      <div className="tagline">Trusted Since 2010</div>
+      <h1>
+        <span className="highlight">Building Dreams,</span><br />
+        Creating Communities
+      </h1>
+      <p className="subheading">Discover your perfect home in Pune with our curated selection of premium properties</p>
+      <div className="hero-actions">
+        <button 
+          onClick={() => window.location.href = '/HomesList'}
+          className="cta-button primary"
+        >
+          Explore Properties
+        </button>
+        
+      </div>
+    </div>
+    
+      <div className="hero-images">
+      <div className="main-image-container">
+        <img 
+          src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+          alt="Luxury modern home"
+          className="main-image"
+        />
+      </div>
+      <div className="image-composition">
+        <img 
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+          alt="Modern apartment interior"
+          className="secondary-image"
+        />
+        <div className="testimonial-card">
+          <div className="stars">★★★★★</div>
+          <p>"Found our dream home in just 2 weeks! Excellent service."</p>
+          <div className="client">
+            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Client" />
+            <span>Riya Patel</span>
+          </div>
         </div>
-        <div className="hero-image">
-          <div className="image-overlay"></div>
         </div>
-      </section>
+        </div>
+      </div>
+    </section>
 
       {/* Stats Bar */}
       <section className="stats-bar">

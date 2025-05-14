@@ -1330,14 +1330,14 @@
 
 
 /* Testimonials Section Styles */
-.testimonials-section {
+.testimonialss-section {
   position: relative;
   padding: 100px 0;
   background: linear-gradient(135deg, #f8f9fa 0%, #e6f0f2 100%);
   overflow: hidden;
 }
 
-.testimonials-overlay {
+.testimonialss-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -1348,7 +1348,7 @@
   z-index: 0;
 }
 
-.container {
+.coontainer {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -1397,14 +1397,14 @@
   font-size: 1.1rem;
 }
 
-.testimonials-carousel {
+.testimonialss-carousel {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   margin-bottom: 40px;
 }
 
-.testimonial-card {
+.testimonial-cardd {
   background: white;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 59, 64, 0.08);
@@ -1413,22 +1413,22 @@
   position: relative;
 }
 
-.testimonial-card:hover {
+.testimonial-cardd:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 40px rgba(0, 59, 64, 0.15);
 }
 
-.card-inner {
+.cardd-inner {
   padding: 30px;
 }
 
-.client-rating {
+.clientt-rating {
   color: #FFC107;
   font-size: 1.2rem;
   margin-bottom: 15px;
 }
 
-.client-quote {
+.clientt-quote {
   font-size: 1rem;
   line-height: 1.7;
   color: #5a6d80;
@@ -1437,7 +1437,7 @@
   padding-left: 20px;
 }
 
-.client-quote:before {
+.clientt-quote:before {
   content: '"';
   position: absolute;
   left: 0;
@@ -1448,13 +1448,13 @@
   line-height: 1;
 }
 
-.client-info {
+.clientt-info {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.client-avatar {
+.clientt-avatar {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -1462,19 +1462,19 @@
   border: 3px solid rgba(0, 122, 138, 0.1);
 }
 
-.client-avatar img {
+.clientt-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.client-details h4 {
+.clientt-details h4 {
   margin: 0;
   color: #003b40;
   font-size: 1.1rem;
 }
 
-.client-details p {
+.clientt-details p {
   margin: 5px 0 0;
   color: #7a8a9a;
   font-size: 0.9rem;

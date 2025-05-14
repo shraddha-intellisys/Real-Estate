@@ -793,9 +793,9 @@ const HomePage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="testimonials-section">
-        <div className="testimonials-overlay"></div>
-        <div className="container">
+      <section className="testimonialss-section">
+        <div className="testimonialss-overlay"></div>
+        <div className="coontainer">
           <div className="sectionn-header">
             <h2 className="sectionn-title">What Our Customers Are Saying</h2>
             <p className="sectionn-description">
@@ -803,21 +803,21 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="testimonials-carousel">
+          <div className="testimonialss-carousel">
             {allTestimonials.slice(0, visibleTestimonials).map(testimonial => (
-              <div className="testimonial-card" key={testimonial.id}>
-                <div className="card-inner">
-                  <div className="client-rating">
+              <div className="testimonial-cardd" key={testimonial.id}>
+                <div className="cardd-inner">
+                  <div className="clientt-rating">
                     {testimonial.rating}
                   </div>
-                  <blockquote className="client-quote">
+                  <blockquote className="clientt-quote">
                     "{testimonial.quote}"
                   </blockquote>
-                  <div className="client-info">
-                    <div className="client-avatar">
+                  <div className="clientt-info">
+                    <div className="clientt-avatar">
                       <img src={testimonial.avatar} alt={testimonial.name} />
                     </div>
-                    <div className="client-details">
+                    <div className="clientt-details">
                       <h4>{testimonial.name}</h4>
                       <p>{testimonial.location}</p>
                     </div>
