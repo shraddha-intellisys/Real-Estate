@@ -7,9 +7,11 @@ import './Navbar.css';
 import axios from 'axios';
 
 
+
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [showAuthPopup, setShowAuthPopup] = useState(false);
+  const [showCreateListingPopup, setShowCreateListingPopup] = useState(false);
   const [activeTab, setActiveTab] = useState('login');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showRegisterPassword, setShowRegisterPassword] = useState(false);
@@ -376,9 +378,17 @@ const Navbar = () => {
                 <span>Contact</span>
               </Link>
             </li>
-            <li className="navbar__auth-buttons">
+             <li className="navbar__auth-buttons">
+              {isLoggedIn && (
+                <button 
+                  className="create-listing-btn"
+                  onClick={() => setShowCreateListingPopup(true)}
+                >
+                  <FaPlus /> Create Listing
+                </button>
+              )}
               <Link to="/adminpanel" className="admin-btn">
-                Admin
+                <i className="fas fa-user-shield">Admin</i> 
               </Link>
               {isLoggedIn ? (
                 <div className="profile-dropdown">
@@ -390,9 +400,9 @@ const Navbar = () => {
                     <Link to="/profile">Profile</Link>
                     <Link to="/SavedProperties">Saved Properties</Link> 
                     <button onClick={() => {
-             handleLogout();
-             window.location.href = '/'; // or use navigate if you're using react-router's useNavigate
-             }}>Logout</button>
+                      handleLogout();
+                      window.location.href = '/';
+                    }}>Logout</button>
                   </div>
                 </div>
               ) : (
@@ -493,6 +503,7 @@ const Navbar = () => {
                 <button type="submit" className="auth-submit-btn">
                   Sign In
                 </button>
+                
                 <div className="auth-divider">
                   <span>or</span>
                 </div>
@@ -650,6 +661,12 @@ const Navbar = () => {
             )}
           </div>
         </div>
+      )}
+      {showCreateListingPopup && (
+        <CreateListingPopup 
+          onClose={() => setShowCreateListingPopup(false)}
+          currentUser={currentUser}
+        />
       )}
     </nav>
   );

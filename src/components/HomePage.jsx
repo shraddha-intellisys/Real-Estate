@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./HomePage.css";
 import vid1 from '../assets/video_1.mp4';
 import vid2 from '../assets/video_2.mp4';
 import vid3 from '../assets/video_3.mp4';
 import vid4 from '../assets/video_4.mp4';
+import { FaArrowUp } from 'react-icons/fa';
 
 const HomePage = () => {
   // State for active filter
   const [activeFilter, setActiveFilter] = useState('All Properties');
   const [quickViewData, setQuickViewData] = useState(null);
   
-  
-
   const navigateToHomesList = (filter) => {
     navigate('/HomesList', { state: { initialFilter: filter } });
   };
@@ -50,7 +49,7 @@ const HomePage = () => {
     }
   ];
 
-     // Testimonials data
+  // Testimonials data
   const allTestimonials = [
     {
       id: 1,
@@ -107,7 +106,6 @@ const HomePage = () => {
   const loadMoreTestimonials = () => {
     setVisibleTestimonials(prev => Math.min(prev + 3, allTestimonials.length));
   };
-
 
   // Additional properties to load
   const moreProperties = [
@@ -190,39 +188,23 @@ const HomePage = () => {
     setHasMore(false);
   };
 
-  // const handleFilterClick = (filter) => {
-  //   setActiveFilter(filter);
-  // };
-
-  // const handleQuickView = (property) => {
-  //   setQuickViewData(property);
-  // };
-
-  // const closeQuickView = () => {
-  //   setQuickViewData(null);
-  // };
-
-  // const handleEnquire = (propertyId) => {
-  //   alert(`Enquiry sent for property ID: ${propertyId}`);
-  // };
-  
-  
-
   return (
     <>
+      {/* Scroll to Top Button
+      {showScrollButton && (
+        <button 
+          className="scroll-to-top" 
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+        >
+          <FaArrowUp />
+        </button>
+      )} */}
+
       <div className="hero-section1">
         <div className="hero-content1">
           <h1>Find Your Dream Home in India</h1>
           <p>PUNE • MUMBAI • DELHI • BANGALORE • HYDERABAD</p>
-          {/* <div className="filters">
-            <select><option>Property Type</option></select>
-            <select><option>All Cities</option></select>
-            <select><option>Bedrooms</option></select>
-            <select><option>Max. Price</option></select>
-            <button className="search-btn" onClick={() => alert('Search functionality would go here')}>
-              Search
-            </button>
-          </div> */}
           <div className="status-buttons">
             <button 
               className="status all-status"
@@ -230,18 +212,6 @@ const HomePage = () => {
             >
               ALL STATUS
             </button>
-            {/* <button 
-              className="status for-rent"
-              onClick={() => window.location.href = '/HomesList'}
-            >
-              FOR RENT
-            </button>
-            <button 
-              className="status for-sell"
-              onClick={() => window.location.href = '/HomesList'}
-            >
-              FOR SELL
-            </button> */}
           </div>
         </div>
       </div>
@@ -268,9 +238,6 @@ const HomePage = () => {
                   onClick={() => handleQuickView(property)}
                 >
                   <div className="image-overlay"></div>
-                  {/* <button className="quick-view-btn">
-                    <i className="fas fa-expand"></i> Quick View
-                  </button> */}
                 </div>
                 <div className="property-details1">
                   <h3>{property.price}</h3>
@@ -280,12 +247,6 @@ const HomePage = () => {
                     <span><i className="fas fa-bath"></i> {property.baths} Baths</span>
                     <span><i className="fas fa-vector-square"></i> {property.area} sq.ft</span>
                   </div>
-                  {/* <button 
-                    className="view-btn"
-                    onClick={() => handleEnquire(property.id)}
-                  >
-                    View Details
-                  </button> */}
                 </div>
               </div>
             ))}
@@ -302,7 +263,7 @@ const HomePage = () => {
       </section>
 
       {/* Modern Minimalist Services Section */}
-       <section className="services-modern">
+      <section className="services-modern">
         <div className="modern-container">
           <div className="modern-header">
             <h2>Simplifying Real Estate</h2>
@@ -431,7 +392,7 @@ const HomePage = () => {
                 <div className="member-specialty">Residential Properties</div>
               </div>
             </div>
-            <button className="modal-action-btn" onClick={() => window.location.href='/contact'}>
+            <button className="modal-action-btn"  onClick={() => alert('Call us at: +1 234 567 8900')}>
               Contact Our Team
             </button>
           </div>
@@ -504,47 +465,39 @@ const HomePage = () => {
                 </div>
               </div>
               
-              {/* <div className="tool-progress">
-                <div className="progress-bar" style={{width: '33%'}}></div>
-                <span>1 of 3 questions</span>
-              </div>
-               */}
-             <button 
+              <button 
                 className="modal-action-btn" 
-                  onClick={(e) => {
-                 // Create a popup element
-                 const popup = document.createElement('div');
-                popup.style.position = 'fixed';
-                popup.style.top = '50%';
-               popup.style.left = '50%';
-              popup.style.transform = 'translate(-50%, -50%)';
-               popup.style.backgroundColor = 'white';
-                popup.style.padding = '20px';
-                popup.style.borderRadius = '8px';
-                popup.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-                popup.style.zIndex = '1000';
-               popup.style.textAlign = 'center';
+                onClick={(e) => {
+                  const popup = document.createElement('div');
+                  popup.style.position = 'fixed';
+                  popup.style.top = '50%';
+                  popup.style.left = '50%';
+                  popup.style.transform = 'translate(-50%, -50%)';
+                  popup.style.backgroundColor = 'white';
+                  popup.style.padding = '20px';
+                  popup.style.borderRadius = '8px';
+                  popup.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+                  popup.style.zIndex = '1000';
+                  popup.style.textAlign = 'center';
 
-            // Popup content
-            popup.innerHTML = `
-           <p>In a real implementation, this would lead to the full matching tool</p>
-           <button 
-           style="padding: 5px 15px; margin-top: 10px; cursor: pointer;"
-             onclick="this.parentElement.remove()"
+                  popup.innerHTML = `
+                    <p>In a real implementation, this would lead to the full matching tool</p>
+                    <button 
+                      style="padding: 5px 15px; margin-top: 10px; cursor: pointer;"
+                      onclick="this.parentElement.remove()"
+                    >
+                      OK
+                    </button>
+                  `;
+
+                  document.body.appendChild(popup);
+                  popup.addEventListener('click', (event) => {
+                    if (event.target === popup) popup.remove();
+                  });
+                }}
               >
-              OK
+                Continue to Full Tool
               </button>
-                `;
-
-    // Append to body and remove on outside click (optional)
-    document.body.appendChild(popup);
-    popup.addEventListener('click', (event) => {
-      if (event.target === popup) popup.remove();
-    });
-           }}
-            >
-        Continue to Full Tool
-      </button>
             </div>
           </div>
         </div>
@@ -619,9 +572,6 @@ const HomePage = () => {
                 </video>
                 <div className="video-overlay">
                   <div className="city-tag">Mumbai</div>
-                  {/* <button className="play-pause-btn">
-                    <i className="fas fa-play"></i>
-                  </button> */}
                 </div>
               </div>
               <div className="video-stats">
@@ -634,7 +584,6 @@ const HomePage = () => {
             <div className="short-video-card" data-aos="fade-up" data-aos-delay="100">
               <div className="video-wrapper">
                 <video 
-                 
                   loop 
                   muted 
                   playsInline
@@ -644,9 +593,6 @@ const HomePage = () => {
                 </video>
                 <div className="video-overlay">
                   <div className="city-tag">Delhi</div>
-                  {/* <button className="play-pause-btn"> */}
-                    {/* <i className="fas fa-play"></i> */}
-                  {/* </button> */}
                 </div>
               </div>
               <div className="video-stats">
@@ -669,9 +615,6 @@ const HomePage = () => {
                 </video>
                 <div className="video-overlay">
                   <div className="city-tag">Bangalore</div>
-                  {/* <button className="play-pause-btn">
-                    <i className="fas fa-play"></i>
-                  </button> */}
                 </div>
               </div>
               <div className="video-stats">
@@ -694,9 +637,6 @@ const HomePage = () => {
                 </video>
                 <div className="video-overlay">
                   <div className="city-tag">Hyderabad</div>
-                  {/* <button className="play-pause-btn">
-                    <i className="fas fa-play"></i>
-                  </button> */}
                 </div>
               </div>
               <div className="video-stats">
@@ -704,15 +644,6 @@ const HomePage = () => {
                 <span><i className="fas fa-heart"></i> 745</span>
               </div>
             </div>
-          </div>
-
-          <div className="shorts-cta">
-            {/* <button 
-              className="shorts-btn"
-              onClick={() => alert('Showing more city guides')}
-            >
-              <i className="fas fa-compass"></i> Explore More Cities
-            </button> */}
           </div>
         </div>
       </section>
@@ -743,9 +674,6 @@ const HomePage = () => {
                   onClick={() => handleQuickView(property)}
                 >
                   <div className="image-overlay"></div>
-                  {/* <button className="quick-view-btn">
-                    <i className="fas fa-expand"></i> Quick View
-                  </button> */}
                 </div>
                 <div className="property-detailss">
                   <h3>{property.price}</h3>
@@ -760,11 +688,11 @@ const HomePage = () => {
                       <i className="fas fa-clock"></i> Listed {property.daysOnMarket} days ago
                     </span>
                     <button 
-        className="enquire-btn"
-      onClick={() => alert('Call us at: +1 234 567 8900')}
-        >
-        Enquire Now
-        </button>
+                      className="enquire-btn"
+                      onClick={() => alert('Call us at: +1 234 567 8900')}
+                    >
+                      Enquire Now
+                    </button>
                   </div>
                 </div>
               </div>
@@ -778,11 +706,11 @@ const HomePage = () => {
                 <p>Our property experts can help you find your dream home</p>
                
               <button 
-              className="ad-contact-btn"
-              onClick={() => alert('Connecting you with our agents')}
-            >
-               <i className="fas fa-headset"></i> Contact Our Agent
-            </button>
+                className="ad-contact-btn"
+                onClick={() => alert('Connecting you with our agents')}
+              >
+                <i className="fas fa-headset"></i> Contact Our Agent
+              </button>
               </div>
               <div className="cta-image">
                 <img src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Real Estate Agent" />
@@ -835,12 +763,10 @@ const HomePage = () => {
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </button>
-              
             </div>
           )}
         </div>
       </section>
-
     </>
   );
 };

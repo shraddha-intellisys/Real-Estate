@@ -340,8 +340,8 @@ const AboutUs = () => {
         </div>
       </section>
 
-      
-     {/* Team Section */}
+      {/* Team Section */}
+    
       <section className="team-section">
       <div className="container">
       <h2>Meet The Experts</h2>
@@ -367,7 +367,7 @@ const AboutUs = () => {
         </div>
       </div>
     </section>
-
+    
       {/* Testimonials */}
       <section className="testimonials">
         <h2>What Our Clients Say</h2>
