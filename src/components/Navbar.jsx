@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUserCircle, FaTimes, FaSearch, FaHome, FaBuilding, FaInfoCircle, FaEnvelope, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaUserCircle, FaTimes, FaSearch, FaHome, FaBuilding, FaInfoCircle, FaEnvelope, FaEye, FaEyeSlash, FaPlus } from 'react-icons/fa';
+
 import { FiUser, FiMail, FiLock, FiPhone } from 'react-icons/fi';
 import logo from '../assets/logo.jpg';
 import './Navbar.css';
